@@ -1,5 +1,7 @@
 package com.herelabs.zombie.apocalypse.escape
 
+import org.joda.convert.FromString
+import org.joda.time.{Minutes,Seconds}
 import org.specs2._
 import org.specs2.execute.Result
 import specification._
@@ -20,17 +22,17 @@ class PlanSpec extends Specification { def is =
     "When they path through the quickest path"                                ^ path^
     "Then it should take them 17 minutes"                                     ^ time^
                                                                               end
-  object group extends Given[Seq[Int]]("\\D*([\\d\\,\\s]+)\\D*") {            
-    def extract(text: String): Seq[Int] = extract1(text).split("\\,?\\s").map{_.toInt}
+  object group extends Given[Seq[Minutes]]("\\D*([\\d\\,\\s]+)\\D*") {            
+    def extract(text: String): Seq[Minutes] = extract1(text).split("\\,?\\s").map{ s => Minutes.minutes(s.toInt) }
   } 
   object aNumber extends Given[Int]("\\D*(\\d+)\\D*") {                       
     def extract(text: String): Int = extract1(text).toInt                     
   } 
-  object path extends When[(Seq[Int], Int, Int), Path] {                      
-    def extract(i: (Seq[Int], Int, Int), text: String): Path = new Plan(i._1, i._2, i._3).findQuickestPath
+  object path extends When[(Seq[Minutes], Int, Int), Path] {                      
+    def extract(i: (Seq[Minutes], Int, Int), text: String): Path = new Plan(i._1, i._2, Seconds.seconds(i._3)).findQuickestPath
   } 
   object time extends Then[Path]("\\D*(\\d+)\\D*") {                          
-    def extract(path: Path, text: String): Result = path.time must_== extract1(text).toInt
+    def extract(path: Path, text: String): Result = path.time must_== Minutes.minutes(extract1(text).toInt)
   } 
 
 }
