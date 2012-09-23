@@ -10,15 +10,15 @@ class PlanSpec extends Specification { def is =
 
   "Group escaping in 60 minutes with no tiredness complications"              ^ br^
     "Given the group crossing times are 5, 10, 20, 25 minutes"                ^ group^
-    "And the tiredness factor is 20%"                                         ^ aNumber^
-    "And each minute of rest gives a 5 seconds boost"                         ^ aNumber^
+    "And the tiredness factor is 0%"                                          ^ aNumber^
+    "And each minute of rest gives a 0 seconds boost"                         ^ aNumber^
     "When they path through the quickest path"                                ^ path^
     "Then it should take them 60 minutes"                                     ^ time^
                                                                               endp^
   "Group escaping in 17 minutes with no tiredness complications"              ^ br^
     "Given the group crossing times are 1, 2, 5, 10 minutes"                  ^ group^
-    "And the tiredness factor is 20%"                                         ^ aNumber^
-    "And each minute of rest gives a 5 seconds boost"                         ^ aNumber^
+    "And the tiredness factor is 0%"                                          ^ aNumber^
+    "And each minute of rest gives a 0 seconds boost"                         ^ aNumber^
     "When they path through the quickest path"                                ^ path^
     "Then it should take them 17 minutes"                                     ^ time^
                                                                               end
