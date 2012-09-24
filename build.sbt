@@ -1,3 +1,9 @@
+import AssemblyKeys._ // put this at the top of the file
+
+assemblySettings
+
+jarName in assembly := "zombie-escape-plan.jar"
+
 name := "Zombie Escape Plan"
 
 version := "1.0"
