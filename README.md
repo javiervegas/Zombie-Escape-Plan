@@ -25,7 +25,7 @@ Luckily the zombie apocalypse didn't bring down the electrical power or the Inte
 ```
 sbt "run TestData.txt"
 ```
-or from the jar (included in the project for convenience)
+or from the jar (included in the target folder of the project for convenience)
 ```
 java -jar target/zombie-escape-plan.jar TestData.txt
 ```
