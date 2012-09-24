@@ -1,5 +1,7 @@
 Zombie-Escape-Plan
-==================
+===========================================
+
+## The Problem
 
 After one of our pet projects at HereLabs went wrong, we accidentally triggered the zombie apocalypse. Zombies are particularly slow in hilly terrain, so you and your fellow survivors figure Marin is probable the safest spot to be. To get there, all N survivors have to cross a particular bridge. Unfortunately you only brought one chainsaw, and crossing bridges without chainsaws is highly inadvisable during zombie attacks. Due to unrelated events, the bridge is also close to collapsing, and at most two people can safely cross the bridge at a time.
 
@@ -17,3 +19,21 @@ Meaning that in the first crossing, Survivors 0 and 1 cross the bridge towards M
 
 Again, use a programming language of choice; you can solve this problem arithmetically, using optimization techniques, or even using good heuristics. Bonus points for cute zombie visualizations.
 
+## The Solution
+
+Luckily the zombie apocalypse didn't bring down the electrical power or the Internet, so you can see here code that calculates the optimal strategy. The program takes as parameter a filename that contains the data (for example, TestData.txt), and can be run from the sbt project 
+```
+sbt "run TestData.txt"
+```
+or from the jar (included in the project for convenience)
+```
+java -jar target/zombie-escape-plan.jar TestData.txt
+```
+The project also includes tests that can be run via
+```
+sbt test
+```
+and the jar can be generated via
+```
+sbt assembly
+```  
