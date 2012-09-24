@@ -19,8 +19,8 @@ object aPlan extends When[(Seq[Minutes], Int, Int), Plan] {
   def extract(i: (Seq[Minutes], Int, Int), text: String): Plan = new Plan(i._1, i._2, Seconds.seconds(i._3))
 } 
 
-object time extends Then[Plan]("\\D*(\\d+)\\D*") {                          
-  def extract(plan: Plan, text: String): Result = plan.quickestTime.getMinutes must be equalTo(extract1(text).toInt)
+object time extends Then[Plan]("\\D*([\\d\\.]+)\\D*") {                          
+  def extract(plan: Plan, text: String): Result = plan.quickestTime.getSeconds/60F must be equalTo(extract1(text).toFloat)
 } 
 
 object output extends Then[Plan](".*\\'(-.*)\\'") {                                                     
