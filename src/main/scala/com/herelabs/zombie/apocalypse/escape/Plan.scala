@@ -171,7 +171,7 @@ object Plan extends App {
       sys.exit
   }
   val survivors = try {
-    scala.io.Source.fromFile(file).getLines.map{ s => Minutes.minutes(s.toInt) }.toList
+    scala.io.Source.fromFile(file).getLines.toList.sorted.map{ s => Minutes.minutes(s.toInt) }
   } catch {
     case ex: java.io.FileNotFoundException =>
       println("Sorry, I can not find that file to read crossing times data")
